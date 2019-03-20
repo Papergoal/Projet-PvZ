@@ -1,0 +1,83 @@
+int main()
+{
+ int n ;
+ int f=0;
+
+    Lecture* nouvellelecture = new Lecture();
+
+while (f!=1)
+{
+     cout << "-------Choisi ce que tu veux faire------\n\n" << endl;
+    cout << "--- 1 Lire ----\n" << endl;
+    cout << "--- 2 Ecrire ---\n" << endl;
+    cin >> n;
+
+
+
+    switch (n)
+    {
+
+    case 1:
+        nouvellelecture->lire();
+        break;
+    case 2:
+        nouvellelecture->ecrire();
+
+        break;
+    default:
+          cout << "Va chiez \n" << endl;
+        break;
+    }
+}
+    return 0;
+}
+
+
+
+Dans une nouvelle classe que nous nommerons "Lecture" , nous ajouterons les fonctions suivantes dans le cpp :
+
+
+void Lecture::lire(){
+        ifstream fichier("tg.txt", ios::in);  // on ouvre en lecture
+
+        if(fichier)
+{
+        string ligne;
+        while(getline(fichier, ligne))  // tant que l'on peut mettre la ligne dans "contenum"
+        {
+                cout << ligne << endl;  // on l'affiche
+        }
+}
+
+        else
+                cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+
+}
+
+void Lecture::ecrire()
+{
+        ofstream fichier("tg.txt", ios::out | ios::trunc);  // ouverture en écriture avec effacement du fichier ouvert
+
+        if(fichier)
+        {
+                string nom ;
+                int age ;
+                 cout << "Quel est votre nom: "<< endl;
+                cin >> nom;
+                 cout << "Quel est votre age: "<< endl;
+                cin >> age;
+
+                fichier << "Bonjour, " << nom << ". Vous avez " << age << " ans.";
+
+                fichier.close();
+        }
+        else
+                cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+
+}
+
+
+Bon evidemment ça écris que de la merde , mais on peut toujours changer woula 
+PS: oubliez pas de mettre les fonctions dans le "Lecture.h"
