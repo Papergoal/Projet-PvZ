@@ -1,0 +1,26 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string line;
+    ifstream MonDoss("youpi.txt");
+
+    if(MonDoss.is_open())
+    {
+        while(!MonDoss.eof())
+        {
+        getline(MonDoss, line);
+        cout << line <<endl;
+        }
+    }
+    else
+    {
+        cout << "ERREUR: Impossible d'ouvrir le fichier." << endl;
+    }
+    return 0;
+}
+
