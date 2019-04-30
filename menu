@@ -1,0 +1,99 @@
+#include "menu.h"
+#include "maps.h"
+#include <iostream>
+#include <windows.h>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+using namespace std;
+menu::menu()
+{
+
+}
+
+menu::~menu()
+{
+    //dtor
+}
+
+void menu::mennu(){
+    int condition =0 ;
+    
+     sf::Sprite sprite;
+    sf::Texture texture;
+    sf::Texture texture2;
+    sf::Texture texture3;
+    sf::Texture texture4;
+    
+    !texture.loadFromFile("menu.png");
+    
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "PVZ");
+    window.setPosition(sf::Vector2i(150, 150));
+
+    sf::RectangleShape shape(sf::Vector2f(1200.f, 800.f));
+    sf::RectangleShape lance(sf::Vector2f(450.f, 50.f));
+    lance.setPosition(300.f, 320.f);
+    sf::FloatRect boundingBox = lance.getGlobalBounds();
+    lance.setFillColor(sf::Color::Transparent);
+
+    sf::RectangleShape option(sf::Vector2f(450.f, 50.f));
+    option.setPosition(300.f, 420.f);
+    sf::FloatRect boundingOption = option.getGlobalBounds();
+    option.setFillColor(sf::Color::Transparent);
+
+    sf::RectangleShape quitte(sf::Vector2f(450.f, 50.f));
+    quitte.setPosition(300.f, 500.f);
+    sf::FloatRect boundingQuitte = quitte.getGlobalBounds();
+    quitte.setFillColor(sf::Color::Transparent);
+    
+    
+     shape.setTexture(&texture); // texture est un sf::Texture
+    lance.setTexture(&texture2);
+    option.setTexture(&texture3);
+    quitte.setTexture(&texture4);
+     while (window.isOpen())
+    {
+        sf::Vector2i localPosition = sf::Mouse::getPosition(window);
+        sf::Event event;
+
+        
+    if (condition ==0){
+
+
+
+             if (boundingBox.contains(localPosition.x, localPosition.y))
+{
+if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    condition = 1;
+                     cout << "--- Alu ---\n" << endl;
+                     window.close();
+                     
+                }
+}
+
+    if (boundingOption.contains(localPosition.x, localPosition.y))
+{
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                    //int fenetre =2;
+                   //int jelancelejeu=0;
+                     cout << "--- Coucou ---\n" << endl;
+                     window.close();
+                     //afficher(fenetre);
+                }
+}
+
+
+if (boundingQuitte.contains(localPosition.x, localPosition.y))
+{
+if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                {
+                     cout << "--- Aurevoir ---\n" << endl;
+                     window.close();
+                     
+
+                }
+}
+                              }
+
