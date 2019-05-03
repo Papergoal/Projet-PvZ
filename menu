@@ -62,34 +62,20 @@ void menu::mennu(){
 
 
 
-    sf::RectangleShape shape(sf::Vector2f(1200.f, 800.f));
-
-    sf::RectangleShape lance(sf::Vector2f(450.f, 50.f));
-
-    lance.setPosition(300.f, 320.f);
-
+        sf::RectangleShape shape(sf::Vector2f(1200.f, 800.f));
+    sf::RectangleShape lance(sf::Vector2f(500.f, 50.f));
+    lance.setPosition(240.f, 420.f);
     sf::FloatRect boundingBox = lance.getGlobalBounds();
-
     lance.setFillColor(sf::Color::Transparent);
 
-
-
     sf::RectangleShape option(sf::Vector2f(450.f, 50.f));
-
-    option.setPosition(300.f, 420.f);
-
+    option.setPosition(300.f, 800.f);
     sf::FloatRect boundingOption = option.getGlobalBounds();
-
     option.setFillColor(sf::Color::Transparent);
 
-
-
     sf::RectangleShape quitte(sf::Vector2f(450.f, 50.f));
-
-    quitte.setPosition(300.f, 500.f);
-
+    quitte.setPosition(240.f, 580.f);
     sf::FloatRect boundingQuitte = quitte.getGlobalBounds();
-
     quitte.setFillColor(sf::Color::Transparent);
 
 
